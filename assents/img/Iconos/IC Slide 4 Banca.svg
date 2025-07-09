@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Capa_2" data-name="Capa 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 109.82 47.89">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #ab9f8a;
+        opacity: .7;
+      }
+    </style>
+  </defs>
+  <g id="Ordenador_escritorio" data-name="Ordenador escritorio">
+    <g id="_3_Opciones" data-name="3 Opciones">
+      <path class="cls-1" d="M109.82,47.89h-2.3v-18.95c0-14.68-11.95-26.63-26.63-26.63H28.94C14.26,2.31,2.31,14.26,2.31,28.94v18.95H0v-18.95C0,12.98,12.98,0,28.94,0h51.95c15.95,0,28.93,12.98,28.93,28.94v18.95Z"/>
+    </g>
+  </g>
+</svg>
