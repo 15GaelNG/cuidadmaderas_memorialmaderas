@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Capa_2" data-name="Capa 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 254.62 29.67">
+  <defs>
+    <style>
+      .cls-1 {
+        letter-spacing: -.06em;
+      }
+
+      .cls-2 {
+        letter-spacing: -.02em;
+      }
+
+      .cls-3 {
+        fill: #fff;
+        font-family: Montserrat-Black, Montserrat;
+        font-size: 25px;
+        font-weight: 800;
+      }
+    </style>
+  </defs>
+  <g id="Ordenador_escritorio" data-name="Ordenador escritorio">
+    <text class="cls-3" transform="translate(0 22.92)"><tspan class="cls-1" x="0" y="0">¿</tspan><tspan x="13.65" y="0">QUIÉNES SOMO</tspan><tspan class="cls-2" x="223.55" y="0">S</tspan><tspan x="239.47" y="0">?</tspan></text>
+  </g>
+</svg>
