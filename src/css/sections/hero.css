@@ -1,0 +1,76 @@
+.hero-section {
+  background: url('/public/assets/img/backgrounds/slide1-background.jpg') no-repeat center center/cover;
+  height: 100vh;
+  position: relative;
+  display: flex;
+  align-items: center;
+  color: #fff;
+  text-align: left;
+}
+
+.overlay {
+  background: rgba(0, 0, 0, 0.4);
+  width: 100%;
+  height: 100%;
+  padding: 0 5%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+  z-index: 1; /* contenido del hero */
+}
+
+.hero-content h1 {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+.hero-bullets {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.hero-bullets li {
+  margin-bottom: 0.5rem;
+  font-size: 1.2rem;
+}
+
+.hero-btn {
+  display: inline-block;
+  background-color: #f2b632;
+  color: #222;
+  padding: 0.8rem 1.5rem;
+  margin-top: 1.5rem;
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 6px;
+  transition: background-color 0.3s ease;
+}
+
+.hero-btn:hover {
+  background-color: #d89d00;
+}
+
+/* ✅ BOTONES FLOTANTES FIJOS EN PANTALLA */
+.btn-scroll,
+.btn-whatsapp {
+  position: fixed; /* se quedan fijos aunque hagas scroll */
+  width: 50px;
+  height: auto;
+  cursor: pointer;
+  z-index: 9999; /* siempre encima */
+}
+
+/* Scroll arriba (esquina inferior derecha) */
+.btn-scroll {
+  bottom: 20px;
+  right: 20px;
+}
+
+/* WhatsApp (un poco más a la izquierda) */
+.btn-whatsapp {
+  bottom: 20px;
+  right: 80px;
+}
