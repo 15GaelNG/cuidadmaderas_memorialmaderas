@@ -1,0 +1,33 @@
+/*Contenedor fijo en esquina inferior derecha */
+.floating-buttons {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 9999; /* Siempre encima */
+  display: flex;
+  flex-direction: row-reverse; /* Scroll más a la derecha, WhatsApp un poco más a la izquierda */
+  gap: 15px; /* separación entre ambos */
+}
+
+/*Botones flotantes */
+.floating-buttons img {
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  object-fit: contain; /* mantiene proporción */
+}
+
+/*Hover con efecto */
+.floating-buttons img:hover {
+  transform: scale(1.1);
+}
+
+/*Responsive: en móviles un poco más chicos */
+@media (max-width: 768px) {
+  .floating-buttons img {
+    width: 45px;
+    height: 45px;
+  }
+}
+

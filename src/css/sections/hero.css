@@ -1,13 +1,16 @@
 .hero-section {
-  background: url('../../../public/assets/img/backgrounds/slide1-background.jpg') no-repeat center center/cover;
   height: 100vh;
   position: relative;
   display: flex;
   align-items: center;
   color: #fff;
   text-align: left;
+
+  /*Fondo con la imagen */
+  background: url("/public/assets/img/backgrounds/slide1-background.jpg") no-repeat center center/cover;
 }
 
+/* Overlay oscuro */
 .overlay {
   background: rgba(0, 0, 0, 0.4);
   width: 100%;
@@ -18,15 +21,10 @@
   justify-content: center;
   position: relative;
   z-index: 1;
-  pointer-events: none; /* Para que no tape los botones flotantes */
-}
-
-.hero-content {
-  pointer-events: auto; /* Texto sí interactúa si se necesita */
 }
 
 .hero-content h1 {
-  font-size: 2.5rem;
+  font-size: 2.8rem;
   font-weight: bold;
   margin-bottom: 1rem;
 }
@@ -56,26 +54,4 @@
 
 .hero-btn:hover {
   background-color: #B4A169;
-}
-
-/*Botones flotantes */
-.btn-scroll,
-.btn-whatsapp {
-  position: fixed;
-  width: 50px;
-  height: auto;
-  cursor: pointer;
-  z-index: 9999 !important; /* Siempre encima */
-}
-
-/*Scroll arriba (esquina inferior derecha) */
-.btn-scroll {
-  bottom: 20px;
-  right: 20px;
-}
-
-/*WhatsApp (un poco más a la izquierda) */
-.btn-whatsapp {
-  bottom: 20px;
-  right: 80px;
 }
