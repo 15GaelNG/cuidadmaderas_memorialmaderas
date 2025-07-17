@@ -1,0 +1,44 @@
+/* 
+  Estilos de la sección 'packages'
+  Contiene un título centrado y un grid con elementos que tienen íconos + texto
+*/
+
+.packages {
+  text-align: center;
+  padding: 60px 20px;
+  background-color: #fff;
+}
+
+/* Estilo del título principal */
+.packages-title {
+  font-size: 2rem;
+  color: #4b612c; /* Verde oliva */
+  margin-bottom: 40px;
+  font-weight: 600;
+}
+
+/* Grid responsive de los ítems */
+.packages-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 30px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+/* Estilo individual de cada item */
+.package-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  font-size: 1rem;
+  color: #2c2c2c;
+  font-weight: 500;
+}
+
+/* Tamaño del ícono de hoja */
+.package-item img {
+  width: 20px;
+  height: auto;
+}
