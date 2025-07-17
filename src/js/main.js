@@ -35,6 +35,17 @@ function initComponents() {
       AOS.refresh();
     }
   );
+
+  // Packages
+  loadComponent(
+    "packages",
+    "components/packages.html",
+    "css/sections/packages.css",
+    () => {
+      console.log("Packages cargado");
+      AOS.refresh();
+    }
+  );
 }
 
 //Inicializa todo
