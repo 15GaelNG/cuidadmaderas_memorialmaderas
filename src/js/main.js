@@ -1,15 +1,18 @@
-//Inyectar CSS dinámicamente
+//Obtener la ruta base automáticamente
+const BASE_PATH = window.location.origin + window.location.pathname.replace('index.html', '');
+
+//Función para inyectar CSS dinámicamente
 function loadCSS(href) {
   const link = document.createElement("link");
   link.rel = "stylesheet";
-  link.href = href;
+  link.href = BASE_PATH + href;
   document.head.appendChild(link);
 }
 
-//Cargar componentes HTML + CSS
+//Función para cargar componentes HTML + CSS
 async function loadComponent(id, htmlPath, cssPath, callback = null) {
   try {
-    const res = await fetch(htmlPath);
+    const res = await fetch(BASE_PATH + htmlPath);
     if (!res.ok) throw new Error(`HTTP ${res.status}`);
     const html = await res.text();
     document.getElementById(id).innerHTML = html;
@@ -21,6 +24,7 @@ async function loadComponent(id, htmlPath, cssPath, callback = null) {
   }
 }
 
+// Ocultar navbar al salir del hero
 function enableScrollBehavior() {
   window.addEventListener("scroll", () => {
     const navbar = document.querySelector(".navbar");
@@ -40,8 +44,8 @@ function enableScrollBehavior() {
   });
 }
 
-// función en reparación
-/* function initFloatingButtons() {
+//Botones flotantes → acción del scroll
+function initFloatingButtons() {
   console.log("Floating buttons script cargado");
 
   const scrollBtn = document.getElementById("btnScrollHero");
@@ -53,67 +57,78 @@ function enableScrollBehavior() {
       }
     });
   }
-} */
-
-function initComponents() {
-  //Navbar
-  loadComponent(
-    "navbar",
-    "components/navbar.html",
-    "/src/css/components/navbar.css",
-    () => {
-      console.log("Navbar cargado");
-      enableScrollBehavior(); // Oculta navbar al salir del hero
-    }
-  );
-
-  //Hero
-  loadComponent(
-    "hero",
-    "components/hero.html",
-    "/src/css/sections/hero.css",
-    () => {
-      console.log("Hero cargado");
-      AOS.init(); // Inicializar animaciones
-    }
-  );
-
-  //About
-  loadComponent(
-    "about",
-    "components/about.html",
-    "/src/css/sections/about.css",
-    () => {
-      console.log("bout cargado");
-      AOS.refresh(); // Refrescar animaciones
-    }
-  );
-
-  //Sección 3
-  loadComponent(
-    "section3",
-    "components/section3.html",
-    "/src/css/sections/section3.css",
-    () => {
-      console.log("Sección 3 cargada");
-      AOS.refresh(); // Refrescar animaciones
-    }
-  );
-
-  //Botones flotantes
-  loadComponent(
-    "floating-buttons",
-    "components/floating-buttons.html",
-    "src/css/components/floating-buttons.css",
-    () => {
-      console.log("Botones flotantes cargados");
-      initFloatingButtons(); // Activar scroll-to-hero
-    }
-  );
 }
 
+//Cargar Navbar
+loadComponent(
+  "navbar",
+  "components/navbar.html",
+  "css/components/navbar.css",
+  () => {
+    console.log("Navbar cargado");
+    enableScrollBehavior();
+  }
+);
 
+//Cargar Hero
+loadComponent(
+  "hero",
+  "components/hero.html",
+  "css/sections/hero.css",
+  () => {
+    console.log("Hero cargado");
+    AOS.init();
+  }
+);
+
+//Cargar About
+loadComponent(
+  "about",
+  "components/about.html",
+  "css/sections/about.css",
+  () => {
+    console.log("About cargado");
+    AOS.refresh();
+  }
+);
+
+// Cargar Sección 3
+loadComponent(
+  "section3",
+  "components/section3.html",
+  "css/sections/section3.css",
+  () => {
+    console.log("Sección 3 cargada");
+    AOS.refresh();
+  }
+);
+
+// Cargar Sección 5
+loadComponent(
+  "section5",
+  "components/section5.html",
+  "css/sections/section5.css",
+  () => {
+    console.log("Sección 5 cargada");
+    AOS.refresh();
+  }
+);
+
+
+//Cargar Botones Flotantes
+loadComponent(
+  "floating-buttons",
+  "components/floating-buttons.html",
+  "css/sections/floating-buttons.css",  //relativo a index.html en src
+  () => {
+    console.log("Botones flotantes cargados");
+    initFloatingButtons();
+  }
+);
+
+
+
+// Inicializar AOS
 document.addEventListener("DOMContentLoaded", () => {
-  initComponents(); // Cargar todo dinámicamente
-  AOS.init(); // Inicializar animaciones por si acaso
+  AOS.init();
 });

@@ -39,14 +39,12 @@
 /* Contenido centrado */
 .section3-content {
   text-align: center;
-  color: #EBE5D1;
+  color: #ebe5d1;
   max-width: 700px;
   padding: 20px;
   position: relative;
   z-index: 20;
-  /* aún más alto */
   pointer-events: auto;
-  /* permite interactuar con el texto */
 }
 
 .section3-content h2 {

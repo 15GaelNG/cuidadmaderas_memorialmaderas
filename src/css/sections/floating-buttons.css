@@ -1,29 +1,31 @@
-/*Contenedor fijo en esquina inferior derecha */
+/* Contenedor de los botones flotantes */
 .floating-buttons {
   position: fixed;
   bottom: 20px;
   right: 20px;
-  z-index: 9999; /* Siempre encima */
   display: flex;
-  flex-direction: row-reverse; /* Scroll más a la derecha, WhatsApp un poco más a la izquierda */
-  gap: 15px; /* separación entre ambos */
+  flex-direction: column; /* uno sobre otro */
+  gap: 15px; /* separación vertical */
+  z-index: 9999; /* siempre encima */
 }
 
-/*Botones flotantes */
+/* Botones flotantes (ambos) */
 .floating-buttons img {
   width: 50px;
   height: 50px;
   cursor: pointer;
   transition: transform 0.3s ease;
-  object-fit: contain; /* mantiene proporción */
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.1); /* leve fondo para contraste */
+  backdrop-filter: blur(4px);
 }
 
-/*Hover con efecto */
+/* Efecto hover */
 .floating-buttons img:hover {
   transform: scale(1.1);
 }
 
-/*Responsive: en móviles un poco más chicos */
+/* Responsive: en móvil un poquito más pequeños */
 @media (max-width: 768px) {
   .floating-buttons img {
     width: 45px;

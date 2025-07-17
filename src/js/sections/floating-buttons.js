@@ -1,6 +1,7 @@
 export function initFloatingButtons() {
   console.log("Floating buttons script cargado");
 
+  // Acción del botón scroll → volver a HERO
   const scrollBtn = document.getElementById("btnScrollHero");
   if (scrollBtn) {
     scrollBtn.addEventListener("click", () => {
