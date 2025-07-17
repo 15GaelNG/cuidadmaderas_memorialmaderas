@@ -2,6 +2,10 @@
 /* Funciones de utils.js */
 import { loadCSS, loadComponent, enableScrollBehavior,enableHeroScrollButton } from "./utils.js";
 
+/* Funciones de componentes */
+import { initCarousel } from "./sections/packages.js";
+
+
 
 // CARGA COMPONENTES
 function initComponents() {
@@ -43,6 +47,7 @@ function initComponents() {
     "css/sections/packages.css",
     () => {
       console.log("Packages cargado");
+      initCarousel();
       AOS.refresh();
     }
   );
