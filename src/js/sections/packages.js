@@ -9,23 +9,31 @@ export function initCarousel() {
 
   const carouselData = [
     {
-      icon: "🌱",
+      icon: "../public/assets/img/icons/IC Slide 4 Perpetuidad.svg",
       text: "Perpetuidad de su nicho y/o mausoleo.",
     },
     {
-      icon: "🪴",
-      text: "Mantenimiento y cuidado profesional del bosque.",
+      icon: "../public/assets/img/icons/IC Slide 4 Tributo.svg",
+      text: "Espacio para tributo, despedida u oratorio.",
     },
     {
-      icon: "🕊️",
-      text: "Espacios exclusivos con valor patrimonial.",
+      icon: "../public/assets/img/icons/IC Slide 4 Iluminación.svg ",
+      text: "Iluminación para visitas nocturnas.",
+    },
+    {
+      icon: "../public/assets/img/icons/IC Slide 4 Banca.svg",
+      text: "Arbol, banca y una lápida conmemorativa discreta y armoniosa.",
+    },
+    {
+      icon: "../public/assets/img/icons/IC Slide 4 Mantenimiento.svg",
+      text: "Mantenimiento y cuidado profecional del bosque.",
     },
   ];
 
   let index = 0;
 
   function updateCarousel() {
-    icon.textContent = carouselData[index].icon;
+    icon.setAttribute("src", carouselData[index].icon);
     text.textContent = carouselData[index].text;
   }
 
