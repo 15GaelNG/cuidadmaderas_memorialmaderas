@@ -5,6 +5,10 @@ const BASE_PATH = window.location.origin + window.location.pathname.replace('ind
 import { loadCSS, loadComponent, enableScrollBehavior,enableHeroScrollButton } from "./utils.js";
 
 /* Funciones de componentes */
+import { initCarousel } from "./sections/packages.js";
+
+
+/* Funciones de componentes */
 /* import { initCarousel } from "./sections/packages.js";
  */
 
@@ -63,16 +67,6 @@ function initComponents() {
     "css/sections/packages.css",
     () => {
       console.log("Packages cargado");
-      initCarousel();
-      AOS.refresh();
-    }
-  );
- loadComponent(
-    "section5",
-    "components/section5.html",
-    "css/sections/section5.css",
-    () => {
-      console.log("Sección 5 cargada");
       AOS.refresh();
     }
   );
