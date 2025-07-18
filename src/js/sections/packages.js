@@ -33,7 +33,8 @@ export function initCarousel() {
   let index = 0;
 
   function updateCarousel() {
-    icon.setAttribute("src", carouselData[index].icon);
+    // Actualiza contenido
+    icon.src = carouselData[index].icon;
     text.textContent = carouselData[index].text;
   }
 
