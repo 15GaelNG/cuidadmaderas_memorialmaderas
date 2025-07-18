@@ -68,6 +68,16 @@ function initComponents() {
   );
 
   loadComponent(
+    "section5",
+    "components/section5.html",
+    "css/sections/section5.css",
+    () => {
+      console.log("Sección 5 cargada");
+      AOS.refresh();
+    }
+  );
+
+  loadComponent(
     "floating-buttons",
     "components/floating-buttons.html",
     "css/sections/floating-buttons.css",
