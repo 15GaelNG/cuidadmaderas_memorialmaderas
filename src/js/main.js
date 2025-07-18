@@ -7,11 +7,6 @@ import { loadCSS, loadComponent, enableScrollBehavior,enableHeroScrollButton } f
 /* Funciones de componentes */
 import { initCarousel } from "./sections/packages.js";
 
-
-/* Funciones de componentes */
-/* import { initCarousel } from "./sections/packages.js";
- */
-
 // Inicializar botones flotantes (ejemplo para btnScrollHero)
 function initFloatingButtons() {
   console.log("Floating buttons script cargado");
@@ -67,6 +62,7 @@ function initComponents() {
     "css/sections/packages.css",
     () => {
       console.log("Packages cargado");
+      initCarousel();
       AOS.refresh();
     }
   );
