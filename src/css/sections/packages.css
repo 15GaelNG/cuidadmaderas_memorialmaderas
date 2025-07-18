@@ -86,14 +86,12 @@
 
 .carousel-btn {
   background: none;
-  border: 2px solid #aaa;
+  border: none;
   border-radius: 50%;
   width: 40px;
   height: 40px;
   font-size: 1.5rem;
-  color: #333;
   cursor: pointer;
-  transition: background 0.3s;
 }
 
 .carousel-btn:hover {
