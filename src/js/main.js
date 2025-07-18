@@ -1,7 +1,7 @@
-//Obtener la ruta base automáticamente
+// Obtener la ruta base automáticamente
 const BASE_PATH = window.location.origin + window.location.pathname.replace('index.html', '');
 
-//Función para inyectar CSS dinámicamente
+// Función para inyectar CSS dinámicamente
 function loadCSS(href) {
   const link = document.createElement("link");
   link.rel = "stylesheet";
@@ -9,7 +9,7 @@ function loadCSS(href) {
   document.head.appendChild(link);
 }
 
-//Función para cargar componentes HTML + CSS
+// Función para cargar componentes HTML + CSS
 async function loadComponent(id, htmlPath, cssPath, callback = null) {
   try {
     const res = await fetch(BASE_PATH + htmlPath);
@@ -44,10 +44,8 @@ function enableScrollBehavior() {
   });
 }
 
-//Botones flotantes → acción del scroll
-function initFloatingButtons() {
-  console.log("Floating buttons script cargado");
-
+// Botón para hacer scroll al hero
+function enableHeroScrollButton() {
   const scrollBtn = document.getElementById("btnScrollHero");
   if (scrollBtn) {
     scrollBtn.addEventListener("click", () => {
@@ -59,76 +57,77 @@ function initFloatingButtons() {
   }
 }
 
-//Cargar Navbar
-loadComponent(
-  "navbar",
-  "components/navbar.html",
-  "css/components/navbar.css",
-  () => {
-    console.log("Navbar cargado");
-    enableScrollBehavior();
-  }
-);
+// Inicializar botones flotantes (ejemplo para btnScrollHero)
+function initFloatingButtons() {
+  console.log("Floating buttons script cargado");
+  enableHeroScrollButton();
+}
 
-//Cargar Hero
-loadComponent(
-  "hero",
-  "components/hero.html",
-  "css/sections/hero.css",
-  () => {
-    console.log("Hero cargado");
-    AOS.init();
-  }
-);
+// Función para inicializar y cargar todos los componentes
+function initComponents() {
+  loadComponent(
+    "navbar",
+    "components/navbar.html",
+    "css/components/navbar.css",
+    () => {
+      console.log("Navbar cargado");
+      enableScrollBehavior();
+    }
+  );
 
-//Cargar About
-loadComponent(
-  "about",
-  "components/about.html",
-  "css/sections/about.css",
-  () => {
-    console.log("About cargado");
-    AOS.refresh();
-  }
-);
+  loadComponent(
+    "hero",
+    "components/hero.html",
+    "css/sections/hero.css",
+    () => {
+      console.log("Hero cargado");
+      enableHeroScrollButton();
+      AOS.init();
+    }
+  );
 
-// Cargar Sección 3
-loadComponent(
-  "section3",
-  "components/section3.html",
-  "css/sections/section3.css",
-  () => {
-    console.log("Sección 3 cargada");
-    AOS.refresh();
-  }
-);
+  loadComponent(
+    "about",
+    "components/about.html",
+    "css/sections/about.css",
+    () => {
+      console.log("About cargado");
+      AOS.refresh();
+    }
+  );
 
-// Cargar Sección 5
-loadComponent(
-  "section5",
-  "components/section5.html",
-  "css/sections/section5.css",
-  () => {
-    console.log("Sección 5 cargada");
-    AOS.refresh();
-  }
-);
+  loadComponent(
+    "section3",
+    "components/section3.html",
+    "css/sections/section3.css",
+    () => {
+      console.log("Sección 3 cargada");
+      AOS.refresh();
+    }
+  );
 
+  loadComponent(
+    "section5",
+    "components/section5.html",
+    "css/sections/section5.css",
+    () => {
+      console.log("Sección 5 cargada");
+      AOS.refresh();
+    }
+  );
 
-//Cargar Botones Flotantes
-loadComponent(
-  "floating-buttons",
-  "components/floating-buttons.html",
-  "css/sections/floating-buttons.css",  //relativo a index.html en src
-  () => {
-    console.log("Botones flotantes cargados");
-    initFloatingButtons();
-  }
-);
+  loadComponent(
+    "floating-buttons",
+    "components/floating-buttons.html",
+    "css/sections/floating-buttons.css",
+    () => {
+      console.log("Botones flotantes cargados");
+      initFloatingButtons();
+    }
+  );
+}
 
-
-
-// Inicializar AOS
+// Inicia todo al cargar el DOM
 document.addEventListener("DOMContentLoaded", () => {
-  AOS.init();
+  initComponents();
 });
