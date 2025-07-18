@@ -86,11 +86,8 @@ function initComponents() {
       initFloatingButtons();
     }
   );
-
-
 }
 
- 
 
 // Inicia todo al cargar el DOM
 document.addEventListener("DOMContentLoaded", () => {
