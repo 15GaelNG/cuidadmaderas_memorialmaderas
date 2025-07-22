@@ -5,8 +5,6 @@
   align-items: center;
   color: #fff;
   text-align: left;
-
-  /*Fondo con la imagen */
   background: url("/public/assets/img/backgrounds/slide1-background.jpg") no-repeat center center/cover;
 }
 
@@ -29,15 +27,28 @@
   margin-bottom: 1rem;
 }
 
+/* Lista de bullets */
 .hero-bullets {
-  list-style: none;
+  list-style: none; /* Quitamos las viñetas nativas */
   margin: 0;
   padding: 0;
 }
 
 .hero-bullets li {
-  margin-bottom: 0.5rem;
+  display: flex;             /* Alineamos icono + texto */
+  align-items: center;       /* Centrado vertical */
+  gap: 10px;                 /* Espacio entre icono y texto */
+  margin-bottom: 0.8rem;
   font-size: 1.2rem;
+  color: #fff;
+}
+
+/* Icono SVG dentro de cada <li> */
+.hero-bullets li img {
+  width: 24px;  /* Tamaño del icono */
+  height: 24px;
+  object-fit: contain;
+  flex-shrink: 0; /* Evita que se deforme */
 }
 
 .hero-btn {

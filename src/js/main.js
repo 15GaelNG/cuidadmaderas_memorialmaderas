@@ -1,17 +1,10 @@
-// Obtener la ruta base automáticamente
+//Ruta base automática
 const BASE_PATH = window.location.origin + window.location.pathname.replace('index.html', '');
 
-/* Funciones de utils.js */
-import { loadCSS, loadComponent, enableScrollBehavior,enableHeroScrollButton } from "./utils.js";
-
-/* Funciones de componentes */
+import { loadMultipleCSS, loadComponent, enableScrollBehavior, enableHeroScrollButton, enableNavbarLinks } from "./utils.js";
 import { initCarousel } from "./sections/packages.js";
-
-// Inicializar botones flotantes (ejemplo para btnScrollHero)
-function initFloatingButtons() {
-  console.log("Floating buttons script cargado");
-  enableHeroScrollButton();
-}
+import { enableNavbarFormsVisibility } from "./sections/navbar-forms.js";
+import { initFloatingButtons } from "./sections/floating-buttons.js";
 
 // Función para inicializar y cargar todos los componentes
 function initComponents() {
@@ -21,9 +14,11 @@ function initComponents() {
     "css/components/navbar.css",
     () => {
       console.log("Navbar cargado");
-      enableScrollBehavior();
+      enableScrollBehavior(); // Ocultar cuando sale del hero
+      enableNavbarLinks();
     }
   );
+} 
 
   loadComponent(
     "hero",
@@ -77,19 +72,48 @@ function initComponents() {
     }
   );
 
-  loadComponent(
-    "floating-buttons",
-    "components/floating-buttons.html",
-    "css/sections/floating-buttons.css",
-    () => {
-      console.log("Botones flotantes cargados");
-      initFloatingButtons();
-    }
-  );
-}
+loadComponent(
+  "floating-buttons",
+  "components/floating-buttons.html",
+  "css/sections/floating-buttons.css",
+  () => {
+    console.log("Botones flotantes cargados");
+    initFloatingButtons();
+  }
+);
 
+
+loadComponent(
+  "forms",
+  "components/forms.html",
+  null,
+  () => {
+    console.log("Forms cargado");
+    
+    loadMultipleCSS([
+      "css/components/navbar-forms.css",
+      "css/sections/forms.css"
+    ]);
+
+    // Lógica del formulario
+    const form = document.getElementById("contactForm");
+    if (form) {
+      form.addEventListener("submit", (e) => {
+        e.preventDefault();
+        const name = document.getElementById("name").value;
+        const email = document.getElementById("email").value;
+        const phone = document.getElementById("phone").value;
+
+        alert(`Datos capturados:\n\nNombre: ${name}\nCorreo: ${email}\nTeléfono: ${phone}`);
+      });
+    }
+
+    enableNavbarFormsVisibility();
+  }
+);
 
 // Inicia todo al cargar el DOM
 document.addEventListener("DOMContentLoaded", () => {
   initComponents();
 });
+

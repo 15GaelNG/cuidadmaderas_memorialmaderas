@@ -50,20 +50,36 @@ export function enableHeroScrollButton() {
   });
 }
 
-
-// Inicializar botones flotantes
-/*
-export function initFloatingButtons() {
-  console.log("Floating buttons script cargado");
-
-  const scrollBtn = document.getElementById("btnScrollHero");
-  if (scrollBtn) {
-    scrollBtn.addEventListener("click", () => {
-      const hero = document.getElementById("hero");
-      if (hero) {
-        hero.scrollIntoView({ behavior: "smooth" });
-      }
-    });
-  }
+export function loadMultipleCSS(cssFiles = []) {
+  cssFiles.forEach(file => {
+    const link = document.createElement("link");
+    link.rel = "stylesheet";
+    link.href = file;
+    document.head.appendChild(link);
+  });
 }
-  */
+
+export function enableNavbarLinks() {
+  // Mapea cada botón con su sección
+  const linkMap = {
+    "nav-about": "about",
+    "nav-packages": "packages",
+    "nav-contact": "forms"
+  };
+
+  // Recorre cada enlace y le agrega evento
+  Object.keys(linkMap).forEach(linkId => {
+    const link = document.getElementById(linkId);
+    if (link) {
+      link.addEventListener("click", (e) => {
+        e.preventDefault();
+        const targetId = linkMap[linkId];
+        const targetSection = document.getElementById(targetId);
+        if (targetSection) {
+          targetSection.scrollIntoView({ behavior: "smooth" });
+        }
+      });
+    }
+  });
+}
+
