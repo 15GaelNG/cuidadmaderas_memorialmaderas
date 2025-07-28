@@ -19,7 +19,7 @@ export function enableNavbarScrollBehavior() {
       navbar.style.pointerEvents = "auto";
     }
   });
-
+  
   // Scroll suave dinámico (espera a que el about exista)
   setTimeout(() => {
     const links = document.querySelectorAll(".nav-link");
