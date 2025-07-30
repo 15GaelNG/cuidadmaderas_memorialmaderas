@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Capa_2" data-name="Capa 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 625 83.24">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #263530;
+      }
+
+      .cls-2 {
+        fill: #fff;
+        font-family: IowanOldStyle-Bold, 'Iowan Old Style';
+        font-size: 38.46px;
+        font-weight: 700;
+      }
+    </style>
+  </defs>
+  <g id="Slide_2" data-name="Slide 2">
+    <g id="Botón_Plantar_Árbol_Memorial" data-name="Botón Plantar Árbol Memorial">
+      <path class="cls-1" d="M610.95,83.24H14.05c-7.76,0-14.05-5.5-14.05-12.29V12.29C0,5.5,6.29,0,14.05,0h596.9c7.76,0,14.05,5.5,14.05,12.29v58.66c0,6.79-6.29,12.29-14.05,12.29Z"/>
+      <text class="cls-2" transform="translate(68.61 57.07)"><tspan x="0" y="0">Plantar un árbol Memorial</tspan></text>
+    </g>
+  </g>
+</svg>

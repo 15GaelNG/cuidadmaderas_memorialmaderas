@@ -1,3 +1,9 @@
+
+/* Importación de componentes */
+@import url('./components/navbar-slide1.css');
+
+/* Importación de secciones */
+@import url('./sections/slide1.css');
 /* Reset básico */
 * {
   margin: 0;
@@ -10,7 +16,7 @@ html {
 }
 
 body {
-  font-family: 'Segoe UI', sans-serif;
+  font-family: 'Montserrat Alternates', 'Segoe UI', sans-serif;
   background-color: #fff;
   color: #222;
 }
@@ -18,3 +24,4 @@ body {
 a {
   text-decoration: none;
 }
+

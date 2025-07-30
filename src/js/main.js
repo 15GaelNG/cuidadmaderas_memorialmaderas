@@ -1,119 +1,52 @@
-//Ruta base automática
-const BASE_PATH = window.location.origin + window.location.pathname.replace('index.html', '');
+import { 
+  loadComponent, 
+  enableSlide1ScrollButton, 
+  enableScrollBehavior 
+} from "./utils.js";
+import { initFloatingButtons } from "./components/floating-buttons.js";
+import { initSlide2Carousel } from "./sections/slide2.js";
+import { initNavbarSlide1, initPlantarArbolButton } from "./components/navbar-slide1.js";
 
-import { loadMultipleCSS, loadComponent, enableScrollBehavior, enableHeroScrollButton, enableNavbarLinks } from "./utils.js";
-import { initCarousel } from "./sections/packages.js";
-import { enableNavbarFormsVisibility } from "./sections/navbar-forms.js";
-import { initFloatingButtons } from "./sections/floating-buttons.js";
-
-// Función para inicializar y cargar todos los componentes
-function initComponents() {
-  loadComponent(
-    "navbar",
-    "components/navbar.html",
-    "css/components/navbar.css",
-    () => {
-      console.log("Navbar cargado");
-      enableScrollBehavior(); // Ocultar cuando sale del hero
-      enableNavbarLinks();
+// Configuración de componentes
+const COMPONENTS = [
+  {
+    id: "slide1",
+    html: "html/sections/slide1.html",
+    css: "css/sections/slide1.css",
+    init: () => {
+      enableSlide1ScrollButton();
+      initNavbarSlide1();
+      initPlantarArbolButton();
     }
-  );
-} 
-
-  loadComponent(
-    "hero",
-    "components/hero.html",
-    "css/sections/hero.css",
-    () => {
-      console.log("Hero cargado");
-      enableHeroScrollButton();
-      AOS.init();
-    }
-  );
-
-  loadComponent(
-    "about",
-    "components/about.html",
-    "css/sections/about.css",
-    () => {
-      console.log("About cargado");
-      AOS.refresh();
-    }
-  );
-
-  loadComponent(
-    "section3",
-    "components/section3.html",
-    "css/sections/section3.css",
-    () => {
-      console.log("Sección 3 cargada");
-      AOS.refresh();
-    }
-  );
-
-  loadComponent(
-    "packages",
-    "components/packages.html",
-    "css/sections/packages.css",
-    () => {
-      console.log("Packages cargado");
-      initCarousel();
-      AOS.refresh();
-    }
-  );
-
-  loadComponent(
-    "section5",
-    "components/section5.html",
-    "css/sections/section5.css",
-    () => {
-      console.log("Sección 5 cargada");
-      AOS.refresh();
-    }
-  );
-
-loadComponent(
-  "floating-buttons",
-  "components/floating-buttons.html",
-  "css/sections/floating-buttons.css",
-  () => {
-    console.log("Botones flotantes cargados");
-    initFloatingButtons();
+  },
+  {
+    id: "slide2", 
+    html: "html/sections/slide2.html",
+    css: "css/sections/slide2.css",
+    init: initSlide2Carousel
+  },
+  {
+    id: "floating-buttons",
+    html: "html/components/floating-buttons.html", 
+    css: "css/components/floating-buttons.css",
+    init: initFloatingButtons
   }
-);
+];
 
-
-loadComponent(
-  "forms",
-  "components/forms.html",
-  null,
-  () => {
-    console.log("Forms cargado");
-    
-    loadMultipleCSS([
-      "css/components/navbar-forms.css",
-      "css/sections/forms.css"
-    ]);
-
-    // Lógica del formulario
-    const form = document.getElementById("contactForm");
-    if (form) {
-      form.addEventListener("submit", (e) => {
-        e.preventDefault();
-        const name = document.getElementById("name").value;
-        const email = document.getElementById("email").value;
-        const phone = document.getElementById("phone").value;
-
-        alert(`Datos capturados:\n\nNombre: ${name}\nCorreo: ${email}\nTeléfono: ${phone}`);
-      });
-    }
-
-    enableNavbarFormsVisibility();
+// Carga optimizada de componentes
+async function initComponents() {
+  const promises = COMPONENTS.map(({ id, html, css, init }) => 
+    loadComponent(id, html, css, init)
+  );
+  
+  try {
+    await Promise.all(promises);
+    enableScrollBehavior();
+    console.log("Todos los componentes cargados exitosamente");
+  } catch (error) {
+    console.error("Error cargando componentes:", error);
   }
-);
+}
 
-// Inicia todo al cargar el DOM
-document.addEventListener("DOMContentLoaded", () => {
-  initComponents();
-});
-
+// 🚀 Inicialización
+document.addEventListener("DOMContentLoaded", initComponents);
