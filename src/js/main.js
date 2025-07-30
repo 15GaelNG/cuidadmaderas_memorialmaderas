@@ -26,6 +26,12 @@ const COMPONENTS = [
     init: initSlide2Carousel
   },
   {
+    id: "slide3",
+    html: "html/sections/slide3.html",
+    css: "css/sections/slide3.css",
+    init: null // Sin funcionalidad JavaScript específica por ahora
+  },
+  {
     id: "floating-buttons",
     html: "html/components/floating-buttons.html", 
     css: "css/components/floating-buttons.css",
