@@ -2,8 +2,6 @@
 /* Importación de componentes */
 @import url('./components/navbar-slide1.css');
 
-/* Importación de secciones */
-@import url('./sections/slide1.css');
 /* Reset básico */
 * {
   margin: 0;
