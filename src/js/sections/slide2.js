@@ -12,7 +12,6 @@ export function initSlide2Carousel() {
   const config = {
     currentIndex: 0,
     totalItems: 3,
-    slideWidth: 33.333333,
     autoPlayDelay: 6000,
     transitionDelay: 150,
     resetDelay: 50
@@ -34,8 +33,8 @@ export function initSlide2Carousel() {
       item.classList.add('animating');
     });
     
-    // Aplicar transformación
-    const offset = -config.currentIndex * config.slideWidth;
+    // Aplicar transformación - cada slide ocupa 100% del ancho
+    const offset = -config.currentIndex * 100;
     elements.content.style.transform = `translateX(${offset}%)`;
     
     updateIndicators();

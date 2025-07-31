@@ -2,24 +2,37 @@
 /* Importación de componentes */
 @import url('./components/navbar-slide1.css');
 
-/* Reset básico */
-* {
+/* Reset básico optimizado */
+*, *::before, *::after {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  max-width: 100%;
 }
 
 html {
   scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
 body {
-  font-family: 'Montserrat Alternates', 'Segoe UI', sans-serif;
+  font: normal 16px/1.5 'Montserrat Alternates', 'Segoe UI', sans-serif;
   background-color: #fff;
   color: #222;
+  overflow-x: hidden;
+  max-width: 100vw;
+  position: relative;
 }
 
-a {
-  text-decoration: none;
+a { text-decoration: none; }
+
+/* Contenedores de slides optimizados */
+#slide1, #slide2, #slide3, #slide4, #slide5, #slide6,
+.slide1-container, .slide2-container, .slide3-container,
+.slide4-container, .slide5-container, .slide6-container {
+  width: 100%;
+  max-width: 100vw;
+  overflow-x: hidden;
+  position: relative;
 }
 

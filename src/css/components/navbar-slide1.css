@@ -3,13 +3,14 @@
   top: 0;
   left: 0;
   width: 100%;
-  height: 150px; /* Aumentado para acomodar logo arriba */
+  height: 130px; /* Reducido de 150px a 130px para hacer el navbar más compacto */
   background: linear-gradient(180deg, 
-    rgba(45, 85, 45, 0.35) 0%, 
-    rgba(45, 85, 45, 0.35) 60%, 
-    rgba(45, 85, 45, 0.25) 80%, 
-    rgba(45, 85, 45, 0.1) 95%, 
-    transparent 100%); /* Gradiente que se difumina solo en la parte inferior */
+    rgba(45, 85, 45, 0.4) 0%, 
+    rgba(45, 85, 45, 0.35) 30%, 
+    rgba(45, 85, 45, 0.25) 60%, 
+    rgba(45, 85, 45, 0.15) 80%, 
+    rgba(45, 85, 45, 0.05) 90%, 
+    transparent 100%); /* Gradiente mejorado con difuminado más suave en la parte inferior */
   backdrop-filter: blur(10px);
   display: flex;
   flex-direction: column; /* Cambio a columna para logo arriba */
@@ -25,7 +26,7 @@
 .navbar-slide1-new .navbar-logo {
   height: 50px; /* Mismo tamaño que el botón plantar */
   width: auto;
-  margin-bottom: 40px;
+  margin-bottom: 20px; /* Reducido de 40px a 20px para acercar el menú al logo */
 }
 
 /* ===== CONTENEDOR INFERIOR (MENÚ + BOTÓN) ===== */
@@ -41,34 +42,30 @@
 /* ===== MENÚ DEL NAVBAR ===== */
 .navbar-menu-slide1 {
   display: flex;
-  gap: 60px; /* Aumentado para separar más los textos */
+  gap: 60px;
   list-style: none;
   margin: 0;
   padding: 0;
   justify-content: center;
 }
 
-.navbar-menu-slide1 li {
-  list-style: none;
-}
+.navbar-menu-slide1 li { list-style: none; }
 
-.navbar-menu-slide1 li a {
+.navbar-menu-slide1 a {
   color: #fff;
-  font-weight: bold;
-  font-size: 16px;
-  font-family: 'Montserrat Alternates', sans-serif;
+  font: bold 16px 'Montserrat Alternates', sans-serif;
   text-decoration: none;
-  transition: all 0.3s ease;
+  transition: color 0.3s ease, transform 0.3s ease;
   position: relative;
   padding: 5px 0;
 }
 
-.navbar-menu-slide1 li a:hover {
+.navbar-menu-slide1 a:hover {
   color: #d4a853;
   transform: translateY(-2px);
 }
 
-.navbar-menu-slide1 li a::after {
+.navbar-menu-slide1 a::after {
   content: '';
   position: absolute;
   bottom: 0;
@@ -79,22 +76,20 @@
   transition: width 0.3s ease;
 }
 
-.navbar-menu-slide1 li a:hover::after {
-  width: 100%;
-}
+.navbar-menu-slide1 a:hover::after { width: 100%; }
 
 /* ===== BOTÓN PLANTAR ÁRBOL EN NAVBAR ===== */
 .navbar-btn-plantar {
   display: flex;
   align-items: center;
   flex-shrink: 0;
-  position: relative; /* Para el efecto de línea */
+  position: relative;
 }
 
 .navbar-btn-arbol {
   height: 30px;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: transform 0.3s ease, filter 0.3s ease;
 }
 
 .navbar-btn-arbol:hover {
@@ -102,11 +97,11 @@
   filter: brightness(1.1);
 }
 
-/* Efecto de línea verde debajo del botón plantar */
+/* Efecto de línea verde debajo del botón */
 .navbar-btn-plantar::after {
   content: '';
   position: absolute;
-  bottom: -8px; /* Posición de la línea debajo del botón */
+  bottom: -8px;
   left: 0;
   width: 0;
   height: 2px;
@@ -114,6 +109,4 @@
   transition: width 0.3s ease;
 }
 
-.navbar-btn-plantar:hover::after {
-  width: 100%;
-}
+.navbar-btn-plantar:hover::after { width: 100%; }
