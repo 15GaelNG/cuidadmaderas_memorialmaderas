@@ -1,6 +1,6 @@
 .section3 {
   min-height: 100vh;
-  background: linear-gradient(135deg, #f2e9ce 0%, #f2e9ce 60%, #688c4f 100%);
+  background: linear-gradient(135deg, #D6CEB7 0%, #f2e9ce  60%, #688c4f 100%);
   padding: 0;
   display: flex;
   flex-direction: column;
@@ -26,7 +26,7 @@
   left: 0;
   width: 100%;
   height: 60px;
-  background: linear-gradient(90deg, #2d5016, #4a7c59, #2d5016);
+  background: linear-gradient(90deg, #263530, #6a975d, #263530);
   z-index: 1;
 }
 
@@ -46,113 +46,113 @@
 .section3-title {
   text-align: center;
   margin: 80px auto 30px auto;
-  padding: 15px 40px;
-  background: linear-gradient(135deg, #4a7c59, #6b9b7a);
-  border-radius: 25px;
-  max-width: 600px;
+  padding: 20px 60px; /* Más padding para el contenedor más grande */
+  background: linear-gradient(135deg, #263530, #688c4f, #263530);
+  border-radius: 20px; /* Bordes más redondeados */
+  max-width: 1200px; /* Contenedor más ancho para acomodar el texto grande */
   box-shadow: 0 8px 20px rgba(0,0,0,0.15);
   position: relative;
   z-index: 2;
 }
 
 .section3-title img {
-  max-width: 500px;
+  max-width: 1000px; /* Texto más grande como en el boceto */
   width: 100%;
   height: auto;
   filter: brightness(0) invert(1);
 }
 
-/* Layout principal */
+/* Layout optimizado */
 .section3-content {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
   flex: 1;
-  gap: 40px; /* Más espacio entre columnas */
-  max-width: 1500px; /* Más ancho para acomodar mejor */
+  gap: 60px;
+  max-width: 1800px;
   margin: 0 auto;
   width: 100%;
-  padding: 0 40px 40px 40px;
+  padding: 0 60px 40px 60px;
   position: relative;
   z-index: 2;
 }
 
-/* Sección lotes */
+/* Lotes optimizados */
 .section3-lotes {
   display: flex;
   flex-direction: column;
-  gap: 25px; /* Más espacio entre cada lote */
-  flex: 0 0 280px; /* Más ancho para acomodar mejor */
-  padding-top: 60px;
-  align-items: flex-start; /* Alineación a la izquierda */
+  gap: 80px;
+  flex: 0 0 350px;
+  padding-top: 80px;
+  align-items: flex-start;
 }
 
 .lote-item {
   display: flex;
   align-items: center;
-  gap: 15px; /* Más espacio entre círculo y texto */
+  gap: 15px;
   transition: transform 0.3s ease;
   width: 100%;
   position: relative;
 }
 
-/* Efecto cascada - cada lote más hacia la derecha */
-.lote-item:nth-child(1) { margin-left: 0px; }
-.lote-item:nth-child(2) { margin-left: 20px; }
-.lote-item:nth-child(3) { margin-left: 40px; }
-
+/* Cascada optimizada */
+.lote-item:nth-child(1) { margin-left: 240px; }
+.lote-item:nth-child(2) { margin-left: 150px; }
+.lote-item:nth-child(3) { margin-left: 80px; }
 .lote-item:hover { transform: translateX(8px) scale(1.02); }
 
 .lote-circle {
-  width: 90px; /* Ligeramente más grande */
-  height: 90px;
+  width: 100px; height: 100px;
   border-radius: 50%;
   overflow: hidden;
   display: flex;
   align-items: center;
   justify-content: center;
   background: #fff;
-  box-shadow: 0 6px 20px rgba(0,0,0,0.15); /* Sombra más prominente */
+  box-shadow: 0 8px 25px rgba(0,0,0,0.2);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   flex-shrink: 0;
-  border: 3px solid rgba(255,255,255,0.8); /* Borde sutil */
+  border: 4px solid rgba(255,255,255,0.9);
 }
 
 .lote-circle:hover {
-  transform: scale(1.08); /* Efecto hover más notorio */
+  transform: scale(1.08);
   box-shadow: 0 10px 30px rgba(0,0,0,0.25);
-  border-color: rgba(74, 124, 89, 0.3); /* Borde verde en hover */
+  border-color: rgba(74, 124, 89, 0.3);
 }
 
 .lote-circle img, .section3-map img { width: 100%; height: auto; object-fit: cover; }
 .lote-name { flex: 1; }
 .lote-name img { 
-  max-width: 180px; /* Más ancho para los textos */
-  width: 100%; 
-  height: auto; 
-  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1)); /* Sombra sutil al texto */
+  max-width: 150px;
+  width: 100%; height: auto; 
+  filter: drop-shadow(0 3px 6px rgba(0,0,0,0.2));
 }
 
-/* Mapa */
+/* Tamaño específico tercer lote */
+.lote-item:nth-child(3) .lote-name img { max-width: 90px !important; }
+
+/* Mapa y opciones optimizados */
 .section3-map {
-  flex: 0 0 380px; /* Ligeramente más ancho */
+  flex: 0 0 620px;
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 20px; /* Más padding para centrar mejor */
+  margin-top: 80px; 
+  padding: 40px;
 }
 
 .section3-map img { 
-  filter: drop-shadow(0 10px 20px rgba(0,0,0,0.15)); /* Sombra más prominente */
-  max-width: 100%;
-  height: auto;
-  border-radius: 8px; /* Bordes ligeramente redondeados */
+  filter: drop-shadow(0 10px 20px rgba(0,0,0,0.15));
+  max-width: 100%; height: auto;
+  border-radius: 8px;
+  transform: scale(1.3);
 }
 
-/* Opciones verdes */
 .section3-options {
-  flex: 1;
-  padding-top: 60px;
+  flex: 0 0 600px;
+  padding-top: 40px;
   display: flex;
   justify-content: center;
 }
@@ -160,18 +160,19 @@
 .options-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 30px;
-  max-width: 750px;
+  gap: 20px;
+  max-width: 800px;
   width: 100%;
 }
 
 .option-card {
   position: relative;
-  border-radius: 12px;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+  border-radius: 15px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.25);
   transition: all 0.4s ease;
   cursor: pointer;
-  min-height: 220px;
+  min-height: 335px;
+  width: 200px;
   overflow: hidden;
   background: transparent;
 }
@@ -179,11 +180,9 @@
 .option-card::before {
   content: '';
   position: absolute;
-  bottom: -8px;
-  left: 50%;
+  bottom: -8px; left: 50%;
   transform: translateX(-50%);
-  width: 0;
-  height: 3px;
+  width: 0; height: 3px;
   background: linear-gradient(90deg, #4a7c59, #6b9b7a);
   border-radius: 2px;
   transition: width 0.4s ease;
@@ -232,24 +231,75 @@
   align-items: center;
   justify-content: center;
   z-index: 4;
-  padding: 25px;
-  gap: 20px;
+  padding: 20px;
+  gap: 25px; /* MÁS ESPACIO entre icono y texto */
 }
 
-.option-icon, .option-title { flex-shrink: 0; }
+.option-icon, .option-title { 
+  flex-shrink: 0; 
+  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.3)); /* Mejor contraste */
+}
 .option-title { text-align: center; }
 
 .option-icon img {
-  width: 55px;
-  height: 55px;
-  filter: brightness(0) invert(1);
+  width: 40px; /* Iconos un poco más pequeños para dar espacio al texto */
+  height: 40px;
+  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.5)); /* Solo sombra, sin cambiar colores */
   display: block;
 }
 
 .option-title img {
-  max-width: 100%;
+  width: 120px !important; /* ANCHO FIJO más grande */
+  height: auto; /* Altura automática para mantener proporción */
+  min-height: 40px; /* Altura mínima */
+  display: block;
+  filter: brightness(0) invert(1) drop-shadow(0 3px 6px rgba(0,0,0,0.8)); /* Texto blanco con sombra fuerte */
+  
+  padding: 8px; /* MÁS PADDING PARA DEBUG */
+  border-radius: 5px; /* BORDES MÁS GRANDES PARA DEBUG */
+}
+
+/* TAMAÑOS INDIVIDUALES POR POSICIÓN */
+.option-card:nth-child(1) .option-title img { width: 150px !important; } /* Lote Memorial Nichos */
+.option-card:nth-child(2) .option-title img { width: 150px !important; } /* Lote Memorial Mixto */
+.option-card:nth-child(3) .option-title img { width: 100px !important; } /* Mausoleo Triple */
+.option-card:nth-child(4) .option-title img { width: 110px !important; } /* Nicho Premium */
+.option-card:nth-child(5) .option-title img { width: 70px !important; }  /* Nicho Plus */
+.option-card:nth-child(6) .option-title img { width: 90px !important; } /* Nicho Sencillo */
+
+/* EFECTO HOVER CON DESCRIPCIONES */
+.option-description {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 5; /* Por encima del contenido normal */
+  opacity: 0; /* Invisible por defecto */
+  transform: scale(0.8); /* Empieza pequeño */
+  transition: all 0.4s ease; /* Transición suave */
+  padding: 20px;
+}
+
+.option-description img {
+  max-width: 90%;
+  max-height: 90%;
   width: auto;
   height: auto;
-  max-height: 60px;
   display: block;
+  filter: drop-shadow(0 4px 8px rgba(0,0,0,0.3));
+}
+
+/* HOVER: Ocultar contenido normal y mostrar descripción */
+.option-card:hover .option-content {
+  opacity: 0; /* Ocultar icono y título */
+  transform: scale(0.8); /* Hacer más pequeño */
+}
+
+.option-card:hover .option-description {
+  opacity: 1; /* Mostrar descripción */
+  transform: scale(1); /* Tamaño normal */
 }
