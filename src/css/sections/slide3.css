@@ -1,13 +1,16 @@
 .section3 {
   min-height: 100vh;
-  background: linear-gradient(135deg, #D6CEB7 0%, #f2e9ce  60%, #688c4f 100%);
+  width: 100%;
+  max-width: 100vw;
+  background: linear-gradient(135deg, #D6CEB7 0%, #f2e9ce 60%, #688c4f 100%);
   padding: 0;
   display: flex;
   flex-direction: column;
   position: relative;
+  overflow-x: hidden;
 }
 
-/* Pseudo-elementos y transiciones */
+/* Pseudo-elementos */
 .section3-transition-bottom {
   position: absolute;
   bottom: 0;
@@ -19,91 +22,88 @@
   pointer-events: none;
 }
 
-.section3::before {
+.section3::before, .section3::after {
   content: '';
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
+  pointer-events: none;
+}
+
+.section3::before {
   height: 60px;
   background: linear-gradient(90deg, #263530, #6a975d, #263530);
   z-index: 1;
 }
 
 .section3::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
   height: 120px;
   background: linear-gradient(to bottom, #B4A169 0%, rgba(180, 161, 105, 0.8) 30%, rgba(180, 161, 105, 0.4) 60%, transparent 100%);
   z-index: 0;
-  pointer-events: none;
 }
 
-/* Título */
+/* Título y Layout */
 .section3-title {
   text-align: center;
   margin: 80px auto 30px auto;
-  padding: 20px 60px; /* Más padding para el contenedor más grande */
+  padding: 20px 40px;
   background: linear-gradient(135deg, #263530, #688c4f, #263530);
-  border-radius: 20px; /* Bordes más redondeados */
-  max-width: 1200px; /* Contenedor más ancho para acomodar el texto grande */
+  border-radius: 20px;
+  max-width: 900px;
   box-shadow: 0 8px 20px rgba(0,0,0,0.15);
   position: relative;
   z-index: 2;
 }
 
 .section3-title img {
-  max-width: 1000px; /* Texto más grande como en el boceto */
+  max-width: 700px;
   width: 100%;
   height: auto;
   filter: brightness(0) invert(1);
 }
 
-/* Layout optimizado */
 .section3-content {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
   flex: 1;
-  gap: 60px;
-  max-width: 1800px;
+  gap: 10px;
+  max-width: 1400px;
   margin: 0 auto;
   width: 100%;
-  padding: 0 60px 40px 60px;
+  padding: 0 20px 40px 20px;
   position: relative;
   z-index: 2;
 }
 
-/* Lotes optimizados */
+/* Lotes */
 .section3-lotes {
   display: flex;
   flex-direction: column;
-  gap: 80px;
-  flex: 0 0 350px;
-  padding-top: 80px;
+  gap: 50px;
+  flex: 0 0 320px;
+  padding-top: 60px;
   align-items: flex-start;
 }
 
 .lote-item {
   display: flex;
   align-items: center;
-  gap: 15px;
+  gap: 12px;
   transition: transform 0.3s ease;
   width: 100%;
   position: relative;
 }
 
-/* Cascada optimizada */
-.lote-item:nth-child(1) { margin-left: 240px; }
-.lote-item:nth-child(2) { margin-left: 150px; }
-.lote-item:nth-child(3) { margin-left: 80px; }
+.lote-item:nth-child(1) { margin-left: 100px; }
+.lote-item:nth-child(2) { margin-left: 20px; }
+.lote-item:nth-child(3) { margin-left: -40px; }
 .lote-item:hover { transform: translateX(8px) scale(1.02); }
 
 .lote-circle {
-  width: 100px; height: 100px;
+  width: 80px; 
+  height: 80px;
   border-radius: 50%;
   overflow: hidden;
   display: flex;
@@ -122,49 +122,58 @@
   border-color: rgba(74, 124, 89, 0.3);
 }
 
-.lote-circle img, .section3-map img { width: 100%; height: auto; object-fit: cover; }
+.lote-circle img, .section3-map img { 
+  width: 100%; 
+  height: auto; 
+  object-fit: cover; 
+}
+
 .lote-name { flex: 1; }
 .lote-name img { 
-  max-width: 150px;
-  width: 100%; height: auto; 
+  max-width: 120px;
+  width: 100%; 
+  height: auto; 
   filter: drop-shadow(0 3px 6px rgba(0,0,0,0.2));
 }
 
-/* Tamaño específico tercer lote */
-.lote-item:nth-child(3) .lote-name img { max-width: 90px !important; }
+.lote-item:nth-child(3) .lote-name img { max-width: 70px !important; }
 
-/* Mapa y opciones optimizados */
+/* Mapa y Opciones */
 .section3-map {
-  flex: 0 0 620px;
+  flex: 0 0 580px;
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   margin-top: 80px; 
-  padding: 40px;
+  padding: 40px 40px 40px 0;
 }
 
 .section3-map img { 
   filter: drop-shadow(0 10px 20px rgba(0,0,0,0.15));
-  max-width: 100%; height: auto;
+  max-width: 100%; 
+  height: auto;
   border-radius: 8px;
-  transform: scale(1.3);
+  transform: scale(1.2);
+  margin-left: -150px;
 }
 
 .section3-options {
   flex: 0 0 600px;
   padding-top: 40px;
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
+  margin-left: -140px;
 }
 
 .options-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
+  gap: 15px;
   max-width: 800px;
   width: 100%;
 }
 
+/* Tarjetas de opciones */
 .option-card {
   position: relative;
   border-radius: 15px;
@@ -172,7 +181,7 @@
   transition: all 0.4s ease;
   cursor: pointer;
   min-height: 335px;
-  width: 200px;
+  width: 180px;
   overflow: hidden;
   background: transparent;
 }
@@ -180,9 +189,11 @@
 .option-card::before {
   content: '';
   position: absolute;
-  bottom: -8px; left: 50%;
+  bottom: -8px; 
+  left: 50%;
   transform: translateX(-50%);
-  width: 0; height: 3px;
+  width: 0; 
+  height: 3px;
   background: linear-gradient(90deg, #4a7c59, #6b9b7a);
   border-radius: 2px;
   transition: width 0.4s ease;
@@ -210,16 +221,10 @@
 .option-bg { z-index: 1; opacity: 1; }
 .option-bg-hover { z-index: 2; opacity: 0; }
 
-.option-card:hover .option-bg {
-  opacity: 0;
-  filter: brightness(1.1) drop-shadow(0 8px 16px rgba(0, 0, 0, 0.2));
-}
+.option-card:hover .option-bg { opacity: 0; filter: brightness(1.1) drop-shadow(0 8px 16px rgba(0, 0, 0, 0.2)); }
+.option-card:hover .option-bg-hover { opacity: 1; filter: brightness(1.1) drop-shadow(0 8px 16px rgba(0, 0, 0, 0.2)); }
 
-.option-card:hover .option-bg-hover {
-  opacity: 1;
-  filter: brightness(1.1) drop-shadow(0 8px 16px rgba(0, 0, 0, 0.2));
-}
-
+/* Contenido de tarjetas */
 .option-content {
   position: absolute;
   top: 0;
@@ -232,42 +237,42 @@
   justify-content: center;
   z-index: 4;
   padding: 20px;
-  gap: 25px; /* MÁS ESPACIO entre icono y texto */
+  gap: 25px;
 }
 
 .option-icon, .option-title { 
   flex-shrink: 0; 
-  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.3)); /* Mejor contraste */
+  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.3));
 }
+
 .option-title { text-align: center; }
 
 .option-icon img {
-  width: 40px; /* Iconos un poco más pequeños para dar espacio al texto */
+  width: 40px;
   height: 40px;
-  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.5)); /* Solo sombra, sin cambiar colores */
+  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.5));
   display: block;
 }
 
 .option-title img {
-  width: 120px !important; /* ANCHO FIJO más grande */
-  height: auto; /* Altura automática para mantener proporción */
-  min-height: 40px; /* Altura mínima */
+  width: 120px !important;
+  height: auto;
+  min-height: 40px;
   display: block;
-  filter: brightness(0) invert(1) drop-shadow(0 3px 6px rgba(0,0,0,0.8)); /* Texto blanco con sombra fuerte */
-  
-  padding: 8px; /* MÁS PADDING PARA DEBUG */
-  border-radius: 5px; /* BORDES MÁS GRANDES PARA DEBUG */
+  filter: brightness(0) invert(1) drop-shadow(0 3px 6px rgba(0,0,0,0.8));
+  padding: 8px;
+  border-radius: 5px;
 }
 
-/* TAMAÑOS INDIVIDUALES POR POSICIÓN */
-.option-card:nth-child(1) .option-title img { width: 150px !important; } /* Lote Memorial Nichos */
-.option-card:nth-child(2) .option-title img { width: 150px !important; } /* Lote Memorial Mixto */
-.option-card:nth-child(3) .option-title img { width: 100px !important; } /* Mausoleo Triple */
-.option-card:nth-child(4) .option-title img { width: 110px !important; } /* Nicho Premium */
-.option-card:nth-child(5) .option-title img { width: 70px !important; }  /* Nicho Plus */
-.option-card:nth-child(6) .option-title img { width: 90px !important; } /* Nicho Sencillo */
+/* Tamaños específicos */
+.option-card:nth-child(1) .option-title img, 
+.option-card:nth-child(2) .option-title img { width: 150px !important; }
+.option-card:nth-child(3) .option-title img { width: 100px !important; }
+.option-card:nth-child(4) .option-title img { width: 110px !important; }
+.option-card:nth-child(5) .option-title img { width: 70px !important; }
+.option-card:nth-child(6) .option-title img { width: 90px !important; }
 
-/* EFECTO HOVER CON DESCRIPCIONES */
+/* Efecto hover con descripciones */
 .option-description {
   position: absolute;
   top: 0;
@@ -277,10 +282,10 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  z-index: 5; /* Por encima del contenido normal */
-  opacity: 0; /* Invisible por defecto */
-  transform: scale(0.8); /* Empieza pequeño */
-  transition: all 0.4s ease; /* Transición suave */
+  z-index: 5;
+  opacity: 0;
+  transform: scale(0.8);
+  transition: all 0.4s ease;
   padding: 20px;
 }
 
@@ -293,13 +298,78 @@
   filter: drop-shadow(0 4px 8px rgba(0,0,0,0.3));
 }
 
-/* HOVER: Ocultar contenido normal y mostrar descripción */
-.option-card:hover .option-content {
-  opacity: 0; /* Ocultar icono y título */
-  transform: scale(0.8); /* Hacer más pequeño */
+.option-card:hover .option-content { opacity: 0; transform: scale(0.8); }
+.option-card:hover .option-description { opacity: 1; transform: scale(1); }
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+  .section3-content {
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+    padding: 0 20px 40px 20px;
+  }
+
+  .section3-lotes,
+  .section3-map,
+  .section3-options {
+    flex: none;
+    width: 100%;
+    max-width: 800px;
+  }
+
+  .section3-map {
+    margin-top: 20px;
+  }
 }
 
-.option-card:hover .option-description {
-  opacity: 1; /* Mostrar descripción */
-  transform: scale(1); /* Tamaño normal */
+@media (max-width: 768px) {
+  .section3-lotes {
+    gap: 40px;
+    padding-top: 40px;
+  }
+
+  .lote-item:nth-child(1) { margin-left: 60px; }
+  .lote-item:nth-child(2) { margin-left: 40px; }
+  .lote-item:nth-child(3) { margin-left: 20px; }
+
+  .lote-circle {
+    width: 80px;
+    height: 80px;
+  }
+
+  .lote-name img {
+    max-width: 120px;
+  }
+
+  .option-card {
+    width: 180px;
+    min-height: 300px;
+  }
+}
+
+@media (max-width: 480px) {
+  .section3-title {
+    margin: 60px auto 20px auto;
+    padding: 15px 20px;
+  }
+
+  .section3-title img {
+    max-width: 300px;
+  }
+
+  .option-card {
+    width: 160px;
+    min-height: 280px;
+  }
+
+  .section3-lotes {
+    gap: 30px;
+  }
+
+  .lote-item:nth-child(1),
+  .lote-item:nth-child(2),
+  .lote-item:nth-child(3) {
+    margin-left: 0;
+  }
 }
