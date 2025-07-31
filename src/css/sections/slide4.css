@@ -1,0 +1,196 @@
+/* Contenedor de videos para animación de deslizamiento */
+/* Forzar que todos los videos del carrusel cubran el contenedor */
+.slide4-carousel-videos video,
+.slide4-carousel-video {
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  object-position: bottom !important;
+  border: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  background: #ece3cb !important;
+  border-radius: 28px !important;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.08) !important;
+  z-index: 1;
+}
+.slide4-carousel-videos {
+  position: relative;
+  width: 100%;
+  max-width: 900px;
+  height: 380px;
+  overflow: hidden;
+}
+.slide4-carousel-videos .slide4-carousel-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  pointer-events: none;
+  transition: transform 1.2s cubic-bezier(0.4,0,0.2,1), opacity 0.7s;
+  z-index: 1;
+}
+.slide4-carousel-videos .slide4-carousel-video.active {
+  opacity: 1;
+  pointer-events: auto;
+  z-index: 2;
+  transform: translateX(0);
+}
+.slide4-carousel-videos .slide4-carousel-video.slide-in-right {
+  opacity: 1;
+  transform: translateX(100%);
+}
+.slide4-carousel-videos .slide4-carousel-video.slide-in-left {
+  opacity: 1;
+  transform: translateX(-100%);
+}
+.slide4-carousel-videos .slide4-carousel-video.slide-out-left {
+  opacity: 0;
+  transform: translateX(-100%);
+}
+.slide4-carousel-videos .slide4-carousel-video.slide-out-right {
+  opacity: 0;
+  transform: translateX(100%);
+}
+/* Animaciones de deslizamiento para el video del carrusel */
+.slide4-carousel-video.slide4-animate-right {
+  animation: slide4-right 0.25s cubic-bezier(0.4,0,0.2,1);
+}
+.slide4-carousel-video.slide4-animate-left {
+  animation: slide4-left 0.25s cubic-bezier(0.4,0,0.2,1);
+}
+
+@keyframes slide4-right {
+  0% { opacity: 0; transform: translateX(60px) scale(0.98); }
+  100% { opacity: 1; transform: translateX(0) scale(1); }
+}
+@keyframes slide4-left {
+  0% { opacity: 0; transform: translateX(-60px) scale(0.98); }
+  100% { opacity: 1; transform: translateX(0) scale(1); }
+}
+/* Botón SVG del carrusel */
+.slide4-btn-img {
+  width: 50px;
+  height: 50px;
+  object-fit: contain;
+  display: block;
+  margin: auto;
+}
+/* Sección 4: Personalización */
+@font-face {
+  font-family: 'Mauren Light Italic';
+  src: url('/public/assets/fonts/Mauren/Mauren-LightItalic.ttf') format('truetype');
+  /*font-style: italic;*/
+}
+
+.slide4-personalizacion {
+  min-height: 100vh;
+  background: #ece3cb;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 20px 40px 20px;
+}
+
+.slide4-title {
+  font-family: 'Mauren Light Italic', serif;
+  font-size: 4rem;
+  color: #263530;
+  text-align: center;
+  margin-bottom: 18px;
+  font-weight: 300;
+}
+
+.slide4-subtitle {
+  font-family: 'Montserrat Alternates', sans-serif;
+  font-size: 1.35rem;
+  color: #263530;
+  text-align: center;
+  margin-bottom: 38px;
+  font-weight: 500;
+}
+
+.slide4-carousel {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  width: 100%;
+  max-width: 900px;
+}
+
+.slide4-carousel-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  position: relative;
+  border-radius: 28px;
+  overflow: hidden;
+  background: #fff;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.10);
+}
+
+.slide4-carousel-video {
+width: 100%;
+height: 100%;
+object-fit: cover;
+border-radius: 28px;
+background: #ece3cb;
+box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+}
+
+.slide4-carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: transparent;
+  border: none;
+  width: 60px;
+  height: 60px;
+  border-radius: 0;
+  box-shadow: none;
+  color: #4a7c59;
+  font-size: 4rem;
+  cursor: pointer;
+  z-index: 2;
+  transition: background 0.2s, transform 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.slide4-carousel-btn-left {
+  left: -90px;
+}
+.slide4-carousel-btn-right {
+  right: -90px;
+}
+.slide4-carousel-btn:hover {
+  background: transparent;
+  transform: translateY(-50%) scale(1.08);
+}
+
+.slide4-carousel-caption {
+  position: absolute;
+  left: 50%;
+  bottom: -25px;
+  transform: translateX(-50%);
+  background: rgba(45,58,45);
+  color: #fff;
+  font-family: 'Iowan Old Style', serif;
+  font-size: 1.5rem;
+  font-style: italic;
+  padding: 10px 38px;
+  border-radius: 8px;
+  box-shadow: 0 2px 16px rgba(0,0,0,0.18);
+  text-align: center;
+  min-width: 220px;
+  max-width: 80%;
+  z-index: 10;
+}
