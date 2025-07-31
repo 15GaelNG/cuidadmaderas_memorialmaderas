@@ -1,0 +1,9 @@
+.slide4-container {
+  min-height: 100vh;
+  width: 100%;
+  max-width: 100vw;
+  position: relative;
+  overflow-x: hidden;
+  padding: 40px 20px;
+  box-sizing: border-box;
+}

@@ -1,8 +1,10 @@
+/* Slide 1 optimizado */
 .slide1-container {
   position: relative;
-  width: 100vw;
+  width: 100%;
+  max-width: 100vw;
   height: 100vh;
-  overflow: hidden;
+  overflow-x: hidden;
 }
 
 .slide1-container::after {
@@ -12,11 +14,11 @@
   left: 0;
   width: 100%;
   height: 120px;
-  background: linear-gradient(to top, 
+  background: linear-gradient(0deg, 
     #f2e9ce 0%, 
     rgba(242, 233, 206, 0.8) 30%,
     rgba(242, 233, 206, 0.4) 60%,
-    transparent 100%
+    transparent
   );
   z-index: 3;
   pointer-events: none;
@@ -24,14 +26,15 @@
 
 .background-video {
   position: absolute;
-  top: 0; left: 0;
-  width: 100vw;
+  inset: 0;
+  width: 100%;
+  max-width: 100vw;
   height: 100vh;
   object-fit: cover;
   z-index: 1;
 }
 
-/* ===== CONTENIDO PRINCIPAL DEL SLIDE1 ===== */
+/* Contenido principal */
 .slide1-content {
   position: absolute;
   top: 50%;
@@ -41,19 +44,19 @@
   text-align: center;
   width: 90%;
   max-width: 1200px;
-  margin-top: 60px; /* Espacio para el navbar más alto */
+  margin-top: 60px;
 }
 
 .logo-slide1-center {
-  width: 700px;
-  max-width: 90vw;
+  width: 100%;
+  max-width: min(700px, 90vw);
   margin-bottom: 30px;
   animation: fadeInUp 1s ease-out 0.5s both;
 }
 
 .descripcion-slide1 {
-  width: 70vw;
-  max-width: 900px;
+  width: 100%;
+  max-width: min(900px, 70vw);
   animation: fadeInUp 1s ease-out 1s both;
 }
 

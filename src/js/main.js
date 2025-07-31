@@ -5,6 +5,7 @@ import {
 } from "./utils.js";
 import { initFloatingButtons } from "./components/floating-buttons.js";
 import { initSlide2Carousel } from "./sections/slide2.js";
+import { initSlide3Carousel } from "./sections/slide3.js";
 import { initNavbarSlide1, initPlantarArbolButton } from "./components/navbar-slide1.js";
 
 // Carga optimizada de componentes
@@ -41,6 +42,7 @@ async function initComponents() {
       "css/sections/slide3.css",
       () => {
         console.log("Slide 3 cargado");
+        initSlide3Carousel();
       }
     );
 
